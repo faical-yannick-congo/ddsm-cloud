@@ -25,7 +25,10 @@ class ProjectModel(db.Document):
     
     @property
     def last_updated(self):
-        return self.records.order_by('-last_updated').limit(1).first().last_updated
+        if self.record_count >0:
+            return self.records.order_by('-last_updated').limit(1).first().last_updated
+        else:
+            return datetime.datetime.now()
 
     @property
     def duration(self):
