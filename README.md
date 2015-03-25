@@ -60,10 +60,28 @@ The following commands have been made for saving the image and loading it into d
 docker save sumatra-cloud > sumatra-cloud.tar
 docker save sumatra-db > sumatra-db.tar
 
-docker load sumatra-cloud < sumatra-cloud.tar
-docker load sumatra-db < sumatra-db.tar
--Linux:
+docker load < sumatra-cloud.tar
+docker load < sumatra-db.tar
 
+Yet right now you will find these two containers on docker public containers.
+To pull them do:
+docker pull palingwende/sumatra-cloud
+docker pull palingwende/sumatra-db
+
+-Linux:
+sudo apt-get update
+sudo apt-get install docker.io
+wget -q0- https://get.docker.com/ | sh
+#Now docker is ready
+#Perform some pulls
+docker pull palingwende/sumatra-cloud
+docker pull palingwende/sumatra-db
+
+In a terminal type: sudo docker run -t -p 27017:27017 palingwende/sumatra-db
+In another: sudo docker run -i -t -p 5000:5000 palingwende/sumatra-cloud
+#Then go to: http://0.0.0.0:5000 and you are feed with sumatra-cloud frontend.
+#At this point this is from the pulled images. Cloning the repositories and going
+in the dockerized branch will do the same thing.
 
 
 ## License
