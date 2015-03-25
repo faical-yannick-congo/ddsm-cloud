@@ -10,9 +10,7 @@ RUN apt-get update -y
 RUN apt-get install -y mongodb-org
 RUN mkdir -p /data/db
 
-# Add and install Python modules
-ADD requirements.txt /src/requirements.txt
-RUN cd /src; pip install -r requirements.txt
+# Add and install Python modules here
 
 # Bundle app source
 ADD . /src

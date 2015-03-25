@@ -30,58 +30,23 @@ reduced the App becomes more extensible to new tools and data
 structures.
 
 
-## [Doker]()
-The cloud service has been 'dockerized'. If you want to build the images
-yourself, you will have the root Dockerfile that are configured for
-the cloud service app and inside the docker folder in mongodb you will
-find the Dockerfile to build the image for the mongodb database.
--[Mac OSX]:
-You will have to install [boot2docker]
-Note: we advice that you have two terminal windows for this. One for mongodb
-and the other for sumatra-cloud. In each of those two terminals do the
-following:
+## [Doker][https://registry.hub.docker.com/repos/palingwende/]
+The cloud service has been 'dockerized'. If you want to build the
+containers yourself. The Dockerfile at the root is configured for
+the cloud service app and the one inside the docker/mongodb folder for
+the database mongodb
+With Docker we provide you two choices.
 
-boot2docker init
-boot2docker start
-"EXPORT the values being displayed."
-cd into the sumatra-cloud.
-1-Sumatra-db (First terminal Tab)
-cd into docker/mongodb
-docker build -t sumatra-db .
-docker run -p 27017:27017 -p 28017:28017 sumatra-db
-2-Sumatra-cloud (Second terminal Tab)
-"stay at the root"
-docker build -t sumatra-cloud .
-docker run -t -i -p 5000:5000 sumatra-cloud
-3-Figure out the ip address:
-boot2docker ip
-End: Assuming you got [192.168.59.103]. Go to a browser and paste: http://192.168.59.103:5000/
-The following commands have been made for saving the image and loading it into docker.
-docker save sumatra-cloud > sumatra-cloud.tar
-docker save sumatra-db > sumatra-db.tar
+## [Choice 1]
+You can pull this repository and build the docker containers yourself.
+Refer to the [installation guide](INSTALLATION.md) on the docker
+section 1 to figure out how to build and run those containers.
 
-docker load < sumatra-cloud.tar
-docker load < sumatra-db.tar
-
-Yet right now you will find these two containers on docker public containers.
-To pull them do:
-docker pull palingwende/sumatra-cloud
-docker pull palingwende/sumatra-db
-
--Linux:
-sudo apt-get update
-sudo apt-get install docker.io
-wget -q0- https://get.docker.com/ | sh
-#Now docker is ready
-#Perform some pulls
-docker pull palingwende/sumatra-cloud
-docker pull palingwende/sumatra-db
-
-In a terminal type: sudo docker run -t -p 27017:27017 palingwende/sumatra-db
-In another: sudo docker run -i -t -p 5000:5000 palingwende/sumatra-cloud
-#Then go to: http://0.0.0.0:5000 and you are feed with sumatra-cloud frontend.
-#At this point this is from the pulled images. Cloning the repositories and going
-in the dockerized branch will do the same thing.
+## [Choice 2]
+The two containers are publicly shared on: 
+[docker registry][https://registry.hub.docker.com/repos/palingwende/].
+Refer to the [installation guide](INSTALLATION.md) on the docker
+section 2 to figure out how to pull and run those containers.
 
 
 ## License
