@@ -12,7 +12,7 @@ VERSION = '0.1-dev'
 
 MONGODB_SETTINGS = {
     'db': 'sumatra-flask',
-    'host': '127.0.0.1',
+    'host': '192.168.59.103',
     'port': 27017
 }
 
