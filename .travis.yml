@@ -26,5 +26,3 @@ notifications:
 
 # command to run tests
 script: nosetests --with-doctest
-
-#Some more parameters.
