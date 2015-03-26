@@ -48,12 +48,11 @@ ip address.
 
 ### On other plateforms:
 
-        We assume that the Ubuntu case will be most likely the case for Linux
-        based plateforms. 
-
-        For non unix based plateforms that will probably
-        require a vm to run the docker containers, it will be most likely the 
-        same as Osx.
+We assume that the Ubuntu case will be most likely the case for Linux
+based plateforms. 
+For non unix based plateforms that will probably
+require a vm to run the docker containers, it will be most likely the 
+same as Osx.
 
 When you solve that based on your plateform, run:
 
@@ -110,7 +109,6 @@ some colisions with another vm using the same ip, you are good to go.
 
 We assume that the Ubuntu case will be most likely the case for Linux
 based plateforms. 
-
 For non unix based plateforms that will probably
 require a vm to run the docker containers, it will be most likely the 
 same as Osx.
