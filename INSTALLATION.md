@@ -98,7 +98,7 @@
     You are on the sumatra-cloud frontend at this point.
 
 ## Section 4: [Install docker][official]
-    On Osx/Non Linux: [Boot2docker][boot2docker]
+    On Osx/Non Linux: link [boot2docker](https://github.com/boot2docker/osx-installer/releases/tag/v1.5.0)
         $ boot2docker init
         $ boot2docker start
         EXPORT the values being displayed.
