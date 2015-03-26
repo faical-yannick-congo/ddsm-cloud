@@ -147,8 +147,6 @@ On Linux:
         
     $ sudo apt-get update
     $ sudo apt-get install docker.io
-    $ wget -q0- https://get.docker.com/ | sh
-
 
 [official]: https://docs.docker.com/installation/
 [boot2docker]: https://github.com/boot2docker/osx-installer/releases/tag/v1.5.0
