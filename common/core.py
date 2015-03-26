@@ -4,9 +4,12 @@ from flask.ext.mongoengine import MongoEngine
 
 db = MongoEngine()
 
-def setup_app(name):
+def setup_app(name, config=None):
     app = Flask(name)
-    app.config.from_object('config')
+    if config is None:
+    	app.config.from_object('config')
+    else:
+    	app.config.from_object(config)
     app.debug = True
 
     # Flask-MongoEngine instance
