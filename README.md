@@ -30,7 +30,7 @@ reduced the App becomes more extensible to new tools and data
 structures.
 
 
-## [Doker][docker]
+## [Docker][docker]
 The cloud service has been 'dockerized'. If you want to build the
 containers yourself. The Dockerfile at the root is configured for
 the cloud service app and the one inside the docker/mongodb folder for
