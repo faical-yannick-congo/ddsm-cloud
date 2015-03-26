@@ -3,6 +3,7 @@
 ### MongoDB
 
 To install MongoDB
+
     $ conda install mongodb
     $ conda install pymongo
     $ pip install mongoengine
@@ -50,6 +51,7 @@ ip address.
 
 We assume that the Ubuntu case will be most likely the case for Linux
 based plateforms. 
+
 For non unix based plateforms that will probably
 require a vm to run the docker containers, it will be most likely the 
 same as Osx.
@@ -109,6 +111,7 @@ some colisions with another vm using the same ip, you are good to go.
 
 We assume that the Ubuntu case will be most likely the case for Linux
 based plateforms. 
+
 For non unix based plateforms that will probably
 require a vm to run the docker containers, it will be most likely the 
 same as Osx.
