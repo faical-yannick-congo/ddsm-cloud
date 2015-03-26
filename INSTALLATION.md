@@ -22,17 +22,73 @@
     $ git checkout dockerized
     $ cd docker/mongodb
     $ docker build -t sumatra-db .
-    $ docker run -d -p 27017:27017 -p 28017:28017 sumatra-db
     $ cd ../..
     $ docker build -t sumatra-cloud .
+    Befor you can run the containers, figureout the docker vm or interface
+    ip address.
+    On Ubuntu run: 
+        $ ifconfig.
+        Notice a docker0 interface and copy the ip_address.
+    On Osx: run: 
+        $ boot2docker ip.
+        Copy the ip_address of the boot2docker vm.
+        In the sumatra-cloud code, inside config.py, replace 
+        'host': '192.168.59.103' in MONGODB_SETTINGS {} by
+        'host': 'ip_address'.
+        Then you are good to go.
+    On other plateforms:
+        We assume that the Ubuntu case will be most likely the case for Linux
+        based plateforms. And for non unix based plateforms that will probably
+        require a vm to run the docker containers, it will be most likely the 
+        same as Osx.
+    When you solve that based on your plateform, run:
+    $ docker run -d -p 27017:27017 -p 28017:28017 sumatra-db
     $ docker run -i -t -p 5000:5000 sumatra-cloud
 
 ## Section 2: Pull from docker registry
     After configuring docker based on your platform, do:
     $ docker pull palingwende/sumatra-db
-    $ docker run -d -p 27017:27017 -p 28017:28017 palingwende/sumatra-db
     $ docker pull palingwende/sumatra-db
-    $ docker run -i -t -p 5000:5000 palingwende/sumatra-cloud
+    Before you can run the containers we have to bridge the docker0 
+    interface to the settings in the sumatra-cloud configs of the database.
+
+    On Ubuntu:
+        $ ip link add br0 type bridge
+        $ sudo ip link add br0 type bridge
+        $ sudo ip addr add 192.168.59.103/20 dev br0
+        $ sudo ip link set br0 up
+        $ docker run -d -p 27017:27017 -p 28017:28017 palingwende/sumatra-db
+        $ docker run -i -t -p 5000:5000 palingwende/sumatra-cloud
+        Finally to make that persistant run the following commands that will 
+        add the bridging to your network interfaces file.
+        $ sudo vim /etc/network/interfaces
+        Add the follwing at the end of the file:
+        auto br0
+        iface br0 inet static
+                address 192.168.59.103
+                netmask 255.255.255.0
+                bridge_ports dummy0
+                bridge_stp off
+                bridge fd 0
+
+    On Osx:
+    Run: $ boot2docker ip.
+        Make sure that the ip is equivalent to 192.168.59.103. If it is
+        you can just do the following:
+        $ docker run -d -p 27017:27017 -p 28017:28017 palingwende/sumatra-db
+        $ docker run -i -t -p 5000:5000 palingwende/sumatra-cloud
+        NOTE: 192.168.59.103 is the default boot2docker ip, unless your have
+        some colisions with another vm using the same ip, you are good to go.
+
+    On other plateforms:
+        We assume that the Ubuntu case will be most likely the case for Linux
+        based plateforms. And for non unix based plateforms that will probably
+        require a vm to run the docker containers, it will be most likely the 
+        same as Osx.
+
+    When you solve that based on your plateform, run:
+    $ docker run -d -p 27017:27017 -p 28017:28017 sumatra-db
+    $ docker run -i -t -p 5000:5000 sumatra-cloud
 
 ## Section 3: Going to the cloud service frontend
     # Figure out your docker ip.
@@ -40,6 +96,11 @@
         If you are on osx: $ boot2docker ip
     Open the browser got to: http://ip_address:5000/
     You are on the sumatra-cloud frontend at this point.
+
+
+# ip link add br0 link em1 type macvlan mode bridge
+# ip addr add 10.12.6.144/21 dev em1p1
+# ip route add 10.12.0.117 dev em1p1
 
 
 
