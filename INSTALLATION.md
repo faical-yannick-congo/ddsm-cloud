@@ -98,15 +98,14 @@
     You are on the sumatra-cloud frontend at this point.
 
 ## Section 4: [Install docker][official]
-On Osx/Non Linux: 
-    Please go to [Boot2docker][boot2docker].
-    $ boot2docker init
-    $ boot2docker start
-    EXPORT the values being displayed.
-On Linux:
-    $ sudo apt-get update
-    $ sudo apt-get install docker.io
-    $ wget -q0- https://get.docker.com/ | sh
+    On Osx/Non Linux: [Boot2docker][boot2docker]
+        $ boot2docker init
+        $ boot2docker start
+        EXPORT the values being displayed.
+    On Linux:
+        $ sudo apt-get update
+        $ sudo apt-get install docker.io
+        $ wget -q0- https://get.docker.com/ | sh
 
 
 [official]: https://docs.docker.com/installation/
