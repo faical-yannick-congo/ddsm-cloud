@@ -98,21 +98,20 @@
     You are on the sumatra-cloud frontend at this point.
 
 
-# ip link add br0 link em1 type macvlan mode bridge
-# ip addr add 10.12.6.144/21 dev em1p1
-# ip route add 10.12.0.117 dev em1p1
-
-
 
 ## Docker installation
-[Official installation source][https://docs.docker.com/installation/]
+[Official][official]
     # Tips
-        On osx: 
-        [boot2docker][https://github.com/boot2docker/osx-installer/releases/tag/v1.5.0]
-        $ boot2docker init
-        $ boot2docker start
-        EXPORT the values being displayed.
+        On osx or other non linux users: 
+            [Boot2docker][boot2docker]
+            $ boot2docker init
+            $ boot2docker start
+            EXPORT the values being displayed.
         On linux:
-        $ sudo apt-get update
-        $ sudo apt-get install docker.io
-        $ wget -q0- https://get.docker.com/ | sh
+            $ sudo apt-get update
+            $ sudo apt-get install docker.io
+            $ wget -q0- https://get.docker.com/ | sh
+
+
+[official]: https://docs.docker.com/installation/
+[boot2docker]: https://github.com/boot2docker/osx-installer/releases/tag/v1.5.0

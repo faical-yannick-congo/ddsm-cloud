@@ -30,21 +30,21 @@ reduced the App becomes more extensible to new tools and data
 structures.
 
 
-## [Doker][https://registry.hub.docker.com/repos/palingwende/]
+## [Doker][docker]
 The cloud service has been 'dockerized'. If you want to build the
 containers yourself. The Dockerfile at the root is configured for
 the cloud service app and the one inside the docker/mongodb folder for
 the database mongodb
 With Docker we provide you two choices.
 
-## [Choice 1]
+## Choice 1
 You can pull this repository and build the docker containers yourself.
 Refer to the [installation guide](INSTALLATION.md) on the docker
 section 1 to figure out how to build and run those containers.
 
-## [Choice 2]
+## Choice 2
 The two containers are publicly shared on: 
-[docker registry][https://registry.hub.docker.com/repos/palingwende/].
+[Docker registry][registery].
 Refer to the [installation guide](INSTALLATION.md) on the docker
 section 2 to figure out how to pull and run those containers.
 
@@ -61,3 +61,6 @@ an instance available.
 ## Prerequisites and Installation
 
 See the [installation guide](INSTALLATION.md).
+
+[registery]: https://registry.hub.docker.com/repos/palingwende/
+[docker]: https://registry.hub.docker.com/repos/palingwende/
