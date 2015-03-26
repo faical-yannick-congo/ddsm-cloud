@@ -120,11 +120,11 @@ When you solve that based on your plateform, run:
 
 ## Going to the cloud service frontend
 
-# Figure out your docker ip.
+Figure out your docker ip.
 
     If you are on linux: the ip is 0.0.0.0
     If you are on osx: $ boot2docker ip
-    
+
 Open the browser got to: http://ip_address:5000/
 You are on the sumatra-cloud frontend at this point.
 
