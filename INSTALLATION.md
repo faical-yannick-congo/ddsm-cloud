@@ -49,7 +49,9 @@ ip address.
 ### On other plateforms:
 
         We assume that the Ubuntu case will be most likely the case for Linux
-        based plateforms. And for non unix based plateforms that will probably
+        based plateforms. 
+
+        For non unix based plateforms that will probably
         require a vm to run the docker containers, it will be most likely the 
         same as Osx.
 
@@ -107,7 +109,9 @@ some colisions with another vm using the same ip, you are good to go.
 ###On other plateforms:
 
 We assume that the Ubuntu case will be most likely the case for Linux
-based plateforms. And for non unix based plateforms that will probably
+based plateforms. 
+
+For non unix based plateforms that will probably
 require a vm to run the docker containers, it will be most likely the 
 same as Osx.
 
@@ -126,6 +130,7 @@ Figure out your docker ip.
     If you are on osx: $ boot2docker ip
 
 Open the browser got to: http://ip_address:5000/
+
 You are on the sumatra-cloud frontend at this point.
 
 ## Installation
