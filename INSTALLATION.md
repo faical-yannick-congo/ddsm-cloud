@@ -97,20 +97,17 @@
     Open the browser got to: http://ip_address:5000/
     You are on the sumatra-cloud frontend at this point.
 
-
-
-## Docker installation
-[Official][official]
-    # Tips
-        On osx or other non linux users: 
-            [Boot2docker][boot2docker]
-            $ boot2docker init
-            $ boot2docker start
-            EXPORT the values being displayed.
-        On linux:
-            $ sudo apt-get update
-            $ sudo apt-get install docker.io
-            $ wget -q0- https://get.docker.com/ | sh
+## [Docker installation][official]
+Tips: 
+# On Osx/Non Linux: 
+Please go to [Boot2docker][boot2docker].
+$ boot2docker init
+$ boot2docker start
+EXPORT the values being displayed.
+# On Linux:
+$ sudo apt-get update
+$ sudo apt-get install docker.io
+$ wget -q0- https://get.docker.com/ | sh
 
 
 [official]: https://docs.docker.com/installation/

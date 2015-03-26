@@ -62,5 +62,5 @@ an instance available.
 
 See the [installation guide](INSTALLATION.md).
 
+[docker]: https://www.docker.com/
 [registery]: https://registry.hub.docker.com/repos/palingwende/
-[docker]: https://registry.hub.docker.com/repos/palingwende/
