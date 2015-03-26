@@ -39,15 +39,16 @@ With Docker we provide you two choices.
 
 ## Choice 1
 You can pull this repository and build the docker containers yourself.
-Refer to the [installation guide](INSTALLATION.md) on the docker
-section 1 to figure out how to build and run those containers.
+Refer to [Building docker containers](INSTALLATION.md#building-docker-containers)
+in the [installation guide](INSTALLATION.md) to figure out 
+how to build and run those containers.
 
 ## Choice 2
 The two containers are publicly shared on: 
 [Docker registry][registery].
-Refer to the [installation guide](INSTALLATION.md) on the docker
-section 2 to figure out how to pull and run those containers.
-
+Refer to [Pull from docker registry](INSTALLATION.md#pull-from-docker-registry)
+in the [installation guide](INSTALLATION.md) to figure out how to pull and run
+those containers.
 
 ## License
 

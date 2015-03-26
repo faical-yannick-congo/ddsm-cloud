@@ -1,4 +1,4 @@
-## Section 0: Manual installation
+## Manual installation
     # MongoDB
     To install MongoDB
         $ conda install mongodb
@@ -15,7 +15,7 @@
         $ pip install docopt
         $ pip install flask-api
 
-## Section 1: Building docker containers
+## Building docker containers
     After configuring docker based on your platform, do:
     $ git clone https://github.com/materialsinnovation/sumatra-cloud.git
     $ cd sumatra-cloud
@@ -45,7 +45,7 @@
     $ docker run -d -p 27017:27017 -p 28017:28017 sumatra-db
     $ docker run -i -t -p 5000:5000 sumatra-cloud
 
-## Section 2: Pull from docker registry
+## Pull from docker registry
     After configuring docker based on your platform, do:
     $ docker pull palingwende/sumatra-db
     $ docker pull palingwende/sumatra-db
@@ -90,22 +90,27 @@
     $ docker run -d -p 27017:27017 -p 28017:28017 sumatra-db
     $ docker run -i -t -p 5000:5000 sumatra-cloud
 
-## Section 3: Going to the cloud service frontend
+## Going to the cloud service frontend
     # Figure out your docker ip.
         If you are on linux: the ip is 0.0.0.0
         If you are on osx: $ boot2docker ip
     Open the browser got to: http://ip_address:5000/
     You are on the sumatra-cloud frontend at this point.
 
-## Section 4: [Install docker][official]
-    On Osx/Non Linux: link [boot2docker](https://github.com/boot2docker/osx-installer/releases/tag/v1.5.0)
-        $ boot2docker init
-        $ boot2docker start
-        EXPORT the values being displayed.
-    On Linux:
-        $ sudo apt-get update
-        $ sudo apt-get install docker.io
-        $ wget -q0- https://get.docker.com/ | sh
+## Installation
+[Install docker][official]
+
+On Osx/Non Linux: [Boot2docker][boot2docker].
+        
+    $ boot2docker init
+    $ boot2docker start
+    EXPORT the values being displayed.
+    
+On Linux:
+        
+    $ sudo apt-get update
+    $ sudo apt-get install docker.io
+    $ wget -q0- https://get.docker.com/ | sh
 
 
 [official]: https://docs.docker.com/installation/
