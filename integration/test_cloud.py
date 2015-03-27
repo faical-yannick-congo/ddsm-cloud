@@ -8,23 +8,24 @@ import os
 import nose
 from nose.tools import nottest
 
+app = setup_app(__name__, 'integrate')
+# Templates
+loader = jinja2.PackageLoader('smt_view', 'templates')
+template_env = jinja2.Environment(autoescape=True, loader=loader)
+template_env.globals.update(url_for=fk.url_for)
+template_env.globals.update(get_flashed_messages=fk.get_flashed_messages)
+# Stormpath
+from flask.ext.stormpath import StormpathManager
+stormpath_manager = StormpathManager(app)
+from smt_view import views
+from common import models
+from smt_view import filters
+
 
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
         
-        app = setup_app(__name__, 'integrate')
-        # Templates
-        loader = jinja2.PackageLoader('smt_view', 'templates')
-        template_env = jinja2.Environment(autoescape=True, loader=loader)
-        template_env.globals.update(url_for=fk.url_for)
-        template_env.globals.update(get_flashed_messages=fk.get_flashed_messages)
-        # Stormpath
-        from flask.ext.stormpath import StormpathManager
-        stormpath_manager = StormpathManager(app)
-        from smt_view import views
-        from common import models
-        from smt_view import filters
         return app
 
     def setUp(self):

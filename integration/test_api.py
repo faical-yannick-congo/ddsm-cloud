@@ -8,12 +8,13 @@ import os
 import nose
 from nose.tools import nottest
 
+app = setup_app(__name__, 'integrate')
+from smt_api import endpoints
+
 class ApiTest(LiveServerTestCase):
 
     def create_app(self):
 
-        app = setup_app(__name__, 'integrate')
-        from smt_api import endpoints
         return app
 
     def setUp(self):
@@ -28,6 +29,6 @@ class ApiTest(LiveServerTestCase):
         assert 1 == 1
 
     def tearDown(self):
-        
+
     	print "Supposed to tear down the testcase."
     	print "Which most likely means to clear the database of all records."
