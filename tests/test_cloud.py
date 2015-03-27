@@ -1,6 +1,6 @@
 import urllib2
 from flask import Flask
-from flask.ext.testing import LiveServerTestCase
+from flask.ext.testing import TestCase
 import jinja2
 import flask as fk
 from common.core import setup_app, db
@@ -26,7 +26,7 @@ from smt_view import views
 from common import models
 from smt_view import filters
 
-class CloudTest(LiveServerTestCase):
+class CloudTest(TestCase):
 
     def create_app(self):
     	self.setUpDatabase()
@@ -37,8 +37,9 @@ class CloudTest(LiveServerTestCase):
         print "Supposed to setup the testcase."
         print "Which probably means to push some testing records in the database."
 
-    def testCloud(self):
+    def test_Cloud(self):
     	print "This is a test to check that the cloud endpoints are working properly."
+        assert_(1 == 1)
 
 
     def tearDown(self):

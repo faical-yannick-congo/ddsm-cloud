@@ -18,9 +18,10 @@ class CloudTest(TestCase):
         print "Supposed to setup the testcase."
         print "Which probably means to push some testing records in the database."
 
-    def testMongoDb(self):
+    def test_MongoDb(self):
     	print "This is a custom test to check that Mongodb is working properly."
+        assert_(1 == 1)
 
-    def tearDown(self):
+    def tear_Down(self):
     	print "Supposed to tear down the testcase."
     	print "Which most likely means to clear the database of all records."

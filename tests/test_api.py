@@ -23,8 +23,9 @@ class ApiTest(LiveServerTestCase):
         print "Supposed to setup the testcase."
         print "Which probably means to push some testing records in the database."
 
-    def testCloud(self):
+    def test_Api(self):
     	print "This is a test to check that the api endpoints are working properly."
+        assert_(1 == 1)
 
 
     def tearDown(self):
