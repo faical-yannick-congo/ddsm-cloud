@@ -41,6 +41,8 @@ class CloudTest(TestCase):
     	print "This is a test to check that the cloud endpoints are working properly."
         assert_(1 == 1)
 
+    def setUpDatabase(self):
+        print "Setting up the database..."
 
     def tearDown(self):
     	print "Supposed to tear down the testcase."

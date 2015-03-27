@@ -10,7 +10,7 @@ from nose.tools import nottest
 
 app = setup_app(__name__, 'integrate')
 
-import endpoints
+from smt_api import endpoints
 
 class ApiTest(LiveServerTestCase):
 
@@ -26,6 +26,10 @@ class ApiTest(LiveServerTestCase):
     def test_Api(self):
     	print "This is a test to check that the api endpoints are working properly."
         assert_(1 == 1)
+
+    def setUpDatabase(self):
+        print "Setting up the database..."
+        
 
 
     def tearDown(self):
