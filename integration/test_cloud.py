@@ -19,6 +19,7 @@ from smt_view import filters
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
+        self.port = 5000
         response = urlopen(self.get_server_url())
         self.assert200(response)
         self.assert404(response)
