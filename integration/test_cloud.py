@@ -1,14 +1,6 @@
-import urllib2
-from flask import Flask
+from integration import app, db
 from flask.ext.testing import LiveServerTestCase
-import jinja2
-import flask as fk
-from common.core import setup_app, db
-import os
-import nose
-from nose.tools import nottest
 
-app = setup_app(__name__, 'integrate')
 # Templates
 loader = jinja2.PackageLoader('smt_view', 'templates')
 template_env = jinja2.Environment(autoescape=True, loader=loader)
@@ -25,7 +17,7 @@ from smt_view import filters
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-        
+
         return app
 
     def setUp(self):

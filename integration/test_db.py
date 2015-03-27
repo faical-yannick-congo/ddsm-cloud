@@ -1,17 +1,14 @@
-from flask.ext.testing import TestCase
-from test_cloud import app, db
-import os
-import nose
-from nose.tools import nottest
+from integration import app, db
+from flask.ext.testing import LiveServerTestCase
 
 # from common.models import UserModel
 # from common.models import ProjectModel
 # from common.models import RecordModel
 
-class CloudTest(TestCase):
+class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-        
+
         return app
 
     def setUp(self):

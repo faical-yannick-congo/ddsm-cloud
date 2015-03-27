@@ -1,14 +1,6 @@
-import urllib2
-from flask import Flask
+from integration import app, db
 from flask.ext.testing import LiveServerTestCase
-import jinja2
-import flask as fk
-from common.core import setup_app, db
-import os
-import nose
-from nose.tools import nottest
 
-app = setup_app(__name__, 'integrate')
 from smt_api import endpoints
 
 class ApiTest(LiveServerTestCase):
