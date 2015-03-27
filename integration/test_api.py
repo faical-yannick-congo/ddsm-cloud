@@ -25,7 +25,7 @@ class ApiTest(LiveServerTestCase):
 
     def test_Api(self):
     	print "This is a test to check that the api endpoints are working properly."
-        assert_(1 == 1)
+        self.assertTrue((1 == 1)
 
     def setUpDatabase(self):
         print "Setting up the database..."

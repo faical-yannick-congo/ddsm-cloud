@@ -20,7 +20,7 @@ class CloudTest(TestCase):
 
     def test_MongoDb(self):
     	print "This is a custom test to check that Mongodb is working properly."
-        assert_(1 == 1)
+        self.assertTrue((1 == 1)
 
     def tear_Down(self):
     	print "Supposed to tear down the testcase."
