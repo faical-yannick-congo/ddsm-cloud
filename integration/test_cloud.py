@@ -1,5 +1,5 @@
 from integration import app, db, urlopen
-from flask.ext.testing import TestCase
+from flask.ext.testing import LiveServerTestCase
 
 # Templates
 import jinja2
@@ -16,7 +16,7 @@ from common import models
 from smt_view import filters
 
 
-class CloudTest(TestCase):
+class CloudTest(LiveServerTestCase):
 
     def create_app(self):
         response = urlopen(self.get_server_url())
