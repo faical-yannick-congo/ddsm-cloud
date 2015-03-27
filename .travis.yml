@@ -27,6 +27,4 @@ notifications:
 
 # command to run tests
 script: 
-  - nosetests -w ./*.py --with-doctest
-  - nosetests -w ./*/*.py --with-doctest
-  - nosetests -w ./*/*/*.py --with-doctest
+  - nosetests -w ./* --with-doctest
