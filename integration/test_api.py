@@ -20,6 +20,6 @@ class ApiTest(LiveServerTestCase):
         assert 1 == 1
 
     def tearDown(self):
-
-    	print "Supposed to tear down the testcase."
-    	print "Which most likely means to clear the database of all records."
+        del self.app
+        print "Supposed to tear down the testcase."
+        print "Which most likely means to clear the database of all records."
