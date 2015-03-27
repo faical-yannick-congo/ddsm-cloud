@@ -19,11 +19,7 @@ from smt_view import filters
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-        self.port = 5000
-        response = urlopen(self.get_server_url())
-        self.assert200(response)
-        self.assert404(response)
-        self.assert500(response)
+        #self.port = 5000
         return app
 
     def setUp(self):
@@ -33,7 +29,10 @@ class CloudTest(LiveServerTestCase):
         print "Which probably means to push some testing records in the database."
 
     def test_Cloud(self):
-
+        response = urlopen(self.get_server_url())
+        self.assert200(response)
+        self.assert404(response)
+        self.assert500(response)
     	print "This is a test to check that the cloud endpoints are working properly."
         assert 1 == 1
 
