@@ -1,8 +1,9 @@
-from integration import app, db
+from integration import app, db, urllib2
 from flask.ext.testing import LiveServerTestCase
 
 # Templates
 import jinja2
+import flask as fk
 loader = jinja2.PackageLoader('smt_view', 'templates')
 template_env = jinja2.Environment(autoescape=True, loader=loader)
 template_env.globals.update(url_for=fk.url_for)
