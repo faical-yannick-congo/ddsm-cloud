@@ -6,7 +6,7 @@ SECRET_KEY = '33stanlake#'
 
 DEBUG = True
 TESTING = True
-LIVESERVER_PORT = 8943
+LIVESERVER_PORT = 5000
 
 APP_TITLE = 'Sumatra Cloud'
 
