@@ -1,4 +1,4 @@
-from integration import app, db, urllib2
+from integration import app, db, urlopen
 from flask.ext.testing import LiveServerTestCase
 
 from smt_api import endpoints

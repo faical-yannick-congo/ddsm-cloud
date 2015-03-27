@@ -1,4 +1,4 @@
-from integration import app, db, urllib2
+from integration import app, db, urlopen
 from flask.ext.testing import TestCase
 
 # Templates
@@ -19,7 +19,7 @@ from smt_view import filters
 class CloudTest(TestCase):
 
     def create_app(self):
-        response = self.client.get('/index')
+        response = urlopen(self.get_server_url())
         self.assert200(response)
         self.assert404(response)
         self.assert500(response)
