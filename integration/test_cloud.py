@@ -1,5 +1,5 @@
 from integration import app, db, urllib2
-from flask.ext.testing import LiveServerTestCase
+from flask.ext.testing import TestCase
 
 # Templates
 import jinja2
@@ -16,7 +16,7 @@ from common import models
 from smt_view import filters
 
 
-class CloudTest(LiveServerTestCase):
+class CloudTest(TestCase):
 
     def create_app(self):
         response = self.client.get('/index')
