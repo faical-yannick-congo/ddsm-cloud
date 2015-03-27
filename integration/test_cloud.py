@@ -1,4 +1,4 @@
-from integration import app, db, urlopen
+from integration import setup_app, db, urlopen
 from flask.ext.testing import LiveServerTestCase
 
 # Templates
@@ -19,7 +19,7 @@ from smt_view import filters
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-        #self.port = 5000
+        app = setup_app(__name__, 'integrate')
         return app
 
     def setUp(self):
@@ -33,5 +33,5 @@ class CloudTest(LiveServerTestCase):
 
     def tearDown(self):
         del self.app
-    	print "Supposed to tear down the testcase."
-    	print "Which most likely means to clear the database of all records."
+        print "Supposed to tear down the testcase."
+        print "Which most likely means to clear the database of all records."

@@ -1,4 +1,4 @@
-from integration import app, db, urlopen
+from integration import setup_app, db, urlopen
 from flask.ext.testing import LiveServerTestCase
 
 from smt_api import endpoints
@@ -6,6 +6,7 @@ from smt_api import endpoints
 class ApiTest(LiveServerTestCase):
 
     def create_app(self):
+        app = setup_app(__name__, 'integrate')
         return app
 
     def setUp(self):

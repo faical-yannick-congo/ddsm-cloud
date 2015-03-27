@@ -1,4 +1,4 @@
-from integration import app, db, urlopen
+from integration import setup_app, db, urlopen
 from flask.ext.testing import LiveServerTestCase
 
 # from common.models import UserModel
@@ -8,7 +8,7 @@ from flask.ext.testing import LiveServerTestCase
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-
+        app = setup_app(__name__, 'integrate')
         return app
 
     def setUp(self):
