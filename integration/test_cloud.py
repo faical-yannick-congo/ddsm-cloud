@@ -19,7 +19,10 @@ from smt_view import filters
 class CloudTest(LiveServerTestCase):
 
     def create_app(self):
-
+        response = self.client.get('/index')
+        self.assert200(response)
+        self.assert404(response)
+        self.assert500(response)
         return app
 
     def setUp(self):

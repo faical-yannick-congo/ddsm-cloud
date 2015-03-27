@@ -6,7 +6,6 @@ from smt_api import endpoints
 class ApiTest(LiveServerTestCase):
 
     def create_app(self):
-
         return app
 
     def setUp(self):
