@@ -26,4 +26,7 @@ notifications:
   email: "yannick.congo@gmail.com"
 
 # command to run tests
-script: nosetests -w ./ --with-doctest
+script: 
+  - nosetests -w ./*.py --with-doctest
+  - nosetests -w ./*/*.py --with-doctest
+  - nosetests -w ./*/*/*.py --with-doctest
