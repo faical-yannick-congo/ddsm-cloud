@@ -27,4 +27,4 @@ notifications:
 
 # command to run tests
 script: 
-  - nosetests -w tests/ --with-doctest -v
+  - nosetests -w integration/ --with-doctest -v
