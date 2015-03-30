@@ -21,5 +21,5 @@ else:
     if not port: port = 5000
 if not host: host = '127.0.0.1'
 
-app.run(host=host, debug=debug, port=int(port))
+#app.run(host=host, debug=debug, port=int(port))
 
