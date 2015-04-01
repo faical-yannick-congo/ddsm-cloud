@@ -1,4 +1,4 @@
-from smt_view import app
+from cloud import app
 import flask as fk
 import dashboard_view
 import project_view

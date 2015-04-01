@@ -1,7 +1,7 @@
-from common.models import UserModel
+from ddsmdb.common.models import UserModel
 from flask.ext.stormpath import user
 import flask as fk
-from smt_view import app
+from cloud import app
 
 @app.route('/dashboard')
 def user_view():

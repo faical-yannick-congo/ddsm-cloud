@@ -1,7 +1,7 @@
 import flask as fk
-from smt_view import app
-from common.models import ProjectModel
-from common.models import RecordModel
+from cloud import app
+from ddsmdb.common.models import ProjectModel
+from ddsmdb.common.models import RecordModel
 
 @app.route('/project/view/<objectid:id>')
 def project_view(id):

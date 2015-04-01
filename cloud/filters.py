@@ -1,5 +1,5 @@
 import datetime
-from smt_view import app
+from cloud import app
 
 def ff(i, st):
     if i == 0:

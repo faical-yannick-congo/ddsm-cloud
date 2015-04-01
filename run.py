@@ -1,22 +1,18 @@
-"""Usage: run.py [--port=<port>] [--api | --view] [--debug | --no-debug]
+"""Usage: run.py [--host=<host>] [--port=<port>] [--debug | --no-debug]
 
---api           run the api app on port 5500
---view          run the view app on port 5000
---port=<port>   set the port number
+--host=<host>   set the host address or leave it to localhost.
+--port=<port>   set the port number or leave it to 5000.
 
 """
 from docopt import docopt
 arguments = docopt(__doc__, version='0.1dev')
 
+host = arguments['--host']
 port = arguments['--port']
 debug = not arguments['--no-debug']
 
-if arguments['--api']:
-    from smt_api import app
-    if not port: port = 5500
-else:
-    from smt_view import app
-    if not port: port = 5000
+from cloud import app
+if not host: port = 5000
+if not port: host = 'localhost'
 
-app.run(debug=debug, port=int(port))
-
+app.run(debug=debug, host=host, port=int(port))

@@ -5,13 +5,15 @@ WTF_CSRF_ENABLED = True
 SECRET_KEY = '33stanlake#'
 
 DEBUG = True
+TESTING = True
+LIVESERVER_PORT = 5000
 
 APP_TITLE = 'Data Driven Simulation Management Cloud'
 
 VERSION = '0.1-dev'
 
 MONGODB_SETTINGS = {
-    'db': 'ddsm-production',
+    'db': 'ddsm-integrate',
     'host': 'localhost',
     'port': 27017
 }
@@ -19,5 +21,3 @@ MONGODB_SETTINGS = {
 STORMPATH_API_KEY_FILE = '~/.stormpath/apiKey.properties'
 STORMPATH_APPLICATION = 'sumatra-cloud'
 STORMPATH_REDIRECT_URL = '/dashboard'
-
-
