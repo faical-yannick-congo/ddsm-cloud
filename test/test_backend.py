@@ -7,16 +7,16 @@ class CloudTest(LiveServerTestCase):
     def create_app(self):
         try:
             browser = twill.get_browser()
-            browser.go("http://localhost:5000/")
+            browser.go("http://127.0.0.1:5000/")
             import cloud
             cloud.app.config['LIVESERVER_PORT'] = 5010
             cloud.app.config['TESTING'] = True
-            cloud.app.config['MONGODB_SETTINGS'] = {'db': 'ddsm-integrate','host': 'localhost','port': 27017}
+            cloud.app.config['MONGODB_SETTINGS'] = {'db': 'ddsm-integrate','host': '127.0.0.1','port': 27017}
         except:
             import cloud
             cloud.app.config['LIVESERVER_PORT'] = 5000
             cloud.app.config['TESTING'] = True
-            cloud.app.config['MONGODB_SETTINGS'] = {'db': 'ddsm-integrate','host': 'localhost','port': 27017}
+            cloud.app.config['MONGODB_SETTINGS'] = {'db': 'ddsm-integrate','host': '127.0.0.1','port': 27017}
             
         return cloud.app
 
@@ -27,13 +27,13 @@ class CloudTest(LiveServerTestCase):
 
     def test_Cloud(self):
         # time.sleep(30)
-        # assert self.app.config['MONGODB_SETTINGS'] == {'db': 'ddsm-integrate', 'host': 'localhost', 'port': 27017}
+        # assert self.app.config['MONGODB_SETTINGS'] == {'db': 'ddsm-integrate', 'host': '127.0.0.1', 'port': 27017}
         browser = twill.get_browser()
-        browser.go("http://localhost:%d/"%self.app.config['LIVESERVER_PORT'])
+        browser.go("http://127.0.0.1:%d/"%self.app.config['LIVESERVER_PORT'])
         self.assertTrue(browser.get_code() in (200, 201))
         html = browser.get_html()
         self.assertTrue('login' in html)
-        browser.go("http://localhost:%d/login"%self.app.config['LIVESERVER_PORT'])
+        browser.go("http://127.0.0.1:%d/login"%self.app.config['LIVESERVER_PORT'])
         self.assertTrue(browser.get_code() in (200, 201))
         html = browser.get_html()
         # login_form = browser.get_form("0")
