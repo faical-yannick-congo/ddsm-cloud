@@ -12,7 +12,7 @@ port = arguments['--port']
 debug = not arguments['--no-debug']
 
 from cloud import app
-if not host: port = 5000
-if not port: host = 'localhost'
+if not port: port = 5000
+if not host: host = 'localhost'
 
 app.run(debug=debug, host=host, port=int(port))

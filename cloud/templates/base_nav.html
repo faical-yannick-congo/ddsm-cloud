@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% set user_url = url_for('dashboard_view', id=user_model.id) %}
+{% set user_url = url_for('dashboard_cloud', hash_session=user_model.session) %}
 
 {% block hostinfo %}
 

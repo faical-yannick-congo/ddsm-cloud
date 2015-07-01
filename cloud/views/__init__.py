@@ -1,8 +1,10 @@
 from cloud import app
 import flask as fk
-import dashboard_view
+import dashboard_cloud
 import project_view
 import record_view
+import user_cloud
+import project_cloud
 
 @app.route('/')
 @app.route('/index')

@@ -28,8 +28,8 @@
                 <td>
                   <a href="{{ url_for('record_view', id=record.id) }}">{{ record.label }}</a>
                 </td>
-                <td>{{ record.reason.split('\n', 1)[:50] if record.reason else '' }}</td>
-                <td>{{ record.outcome.split('\n', 1)[:50] if record.outcome else '' }}</td>
+                <td>{{ record.reason.split('\n', 1) if record.reason else '' }}</td>
+                <td>{{ record.outcome.split('\n', 1) if record.outcome else '' }}</td>
                 <td>{{ record.status }}</td>
                 <td>{{ record.timestamp }}</td>
                 <td>{{ record.duration }}</td>

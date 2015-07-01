@@ -48,7 +48,7 @@
                     <a href="{{ url_for('project_view', id=project.id) }}">{{project.name}}</a>
                   </td>
                   <td>{{ project.record_count }}</td>
-                  <td>{{ project.last_updated.strftime('%Y-%m-%d %X') }}</td>
+                  <td>{{ project.created_at.strftime('%Y-%m-%d %X') }}</td>
                 </tr>
               {% endfor %}
             </tbody>
@@ -80,7 +80,7 @@
                     <a href="{{ url_for('record_view', id=record.id) }}">{{ record.label }}</a>
                   </td>
                   <td>{{ record.status }}</td>
-                  <td>{{ record.timestamp.strftime('%Y-%m-%d %X') }}</td>
+                  <td>{{ record.updated_at.strftime('%Y-%m-%d %X') }}</td>
                   <td>
                     <a href="{{ url_for('project_view', id=record.project.id) }}">{{ record.project.name }}</a>
                   </td>
