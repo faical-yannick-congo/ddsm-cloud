@@ -19,7 +19,7 @@ def user_view():
     print "Session: %s"%user_model.session
     # return fk.redirect(fk.url_for('dashboard_view', id=user_model.id))
     # return fk.redirect(fk.url_for('dashboard_cloud', hash_session=user_model.session))
-    return fk.redirect('http://localhost:8080/ddsm-frontend/?session=%s'%user_model.session)
+    return fk.redirect('http://52.26.127.180:5000/?session=%s'%user_model.session)
 
 @app.route('/cloud/<hash_session>')
 @login_required
@@ -27,7 +27,7 @@ def dashboard_cloud(hash_session):
 	user_model = UserModel.objects(session=hash_session).first()
 	print fk.request.path
 	if user_model is None:
-		return fk.redirect('http://localhost:8080/ddsm-frontend/')
+		return fk.redirect('http://52.26.127.180:5000/')
 		# return fk.redirect(fk.url_for('stormpath.logout', next=fk.request.path))
 	else:
 		allowance = user_model.allowed("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
@@ -35,9 +35,9 @@ def dashboard_cloud(hash_session):
 		if allowance == hash_session:
 		    user_model = UserModel.objects(session=hash_session).first()
 		    # return fk.render_template('dashboard.html', user_model=user_model)
-		    return fk.redirect('http://localhost:8080/ddsm-frontend/dashboard.html?session=%s'%hash_session)
+		    return fk.redirect('http://52.26.127.180:5000/dashboard.html?session=%s'%hash_session)
 		else:
-			return fk.redirect('http://localhost:8080/ddsm-frontend/')
+			return fk.redirect('http://52.26.127.180:5000/')
 
 # @app.route('/dashboard/<objectid:id>')
 # def dashboard_view(id):

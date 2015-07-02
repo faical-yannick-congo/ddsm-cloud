@@ -46,7 +46,7 @@ def user_register():
 					user_model.renew("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 					print "Session: %s"%user_model.session
 					return fk.Response(json.dumps({'session':user_model.session}), mimetype='application/json')
-					# return fk.redirect('http://localhost:8080/ddsm-frontend/%s'%user_model.session)
+					# return fk.redirect('http://52.26.127.180:5000/%s'%user_model.session)
 				except:
 					# print str(traceback.print_exc())
 					return fk.make_response('This user already exists.', status.HTTP_401_UNAUTHORIZED)
@@ -80,7 +80,7 @@ def user_login():
 					account.renew("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 					print "Session: %s"%account.session
 					return fk.Response(json.dumps({'session':account.session}), mimetype='application/json')
-					# return fk.redirect('http://localhost:8080/ddsm-frontend/?session=%s'%account.session)
+					# return fk.redirect('http://52.26.127.180:5000/?session=%s'%account.session)
 				except:
 					# print str(traceback.print_exc())
 					return fk.make_response('Login failed.', status.HTTP_401_UNAUTHORIZED)
@@ -97,16 +97,16 @@ def user_logout(hash_session):
 		user_model = UserModel.objects(session=hash_session).first()
 		print fk.request.path
 		if user_model is None:
-			return fk.redirect('http://localhost:8080/ddsm-frontend/?action=logout_denied')
+			return fk.redirect('http://52.26.127.180:5000/?action=logout_denied')
 		else:
 			allowance = user_model.allowed("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 			print "Allowance: "+allowance
 			if allowance == hash_session:
 				user_model.renew("%sLogout"%(fk.request.headers.get('User-Agent')))
-				# return fk.redirect('http://localhost:8080/ddsm-frontend/?action=logout_success')
+				# return fk.redirect('http://52.26.127.180:5000/?action=logout_success')
 				return fk.Response('Logout succeed', status.HTTP_200_OK)
 			else:
-				return fk.redirect('http://localhost:8080/ddsm-frontend/?action=logout_failed')
+				return fk.redirect('http://52.26.127.180:5000/?action=logout_failed')
 	else:
 		return fk.make_response('Method not allowed.', status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -118,7 +118,7 @@ def user_dashboard(hash_session):
 		user_model = UserModel.objects(session=hash_session).first()
 		print fk.request.path
 		if user_model is None:
-			return fk.redirect('http://localhost:8080/ddsm-frontend/?action=logout_denied')
+			return fk.redirect('http://52.26.127.180:5000/?action=logout_denied')
 		else:
 			allowance = user_model.allowed("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 			print "Allowance: "+allowance
@@ -185,7 +185,7 @@ def user_dashboard(hash_session):
 
 				return fk.Response(json.dumps(dashboard), mimetype='application/json')
 			else:
-				return fk.redirect('http://localhost:8080/ddsm-frontend/?action=dashboard_failed')
+				return fk.redirect('http://52.26.127.180:5000/?action=dashboard_failed')
 	else:
 		return fk.make_response('Method not allowed.', status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -200,16 +200,16 @@ def user_update(hash_session):
 			user_model = UserModel.objects(session=hash_session).first()
 			print fk.request.path
 			if user_model is None:
-				return fk.redirect('http://localhost:8080/ddsm-frontend/?action=update_denied')
+				return fk.redirect('http://52.26.127.180:5000/?action=update_denied')
 			else:
 				allowance = user_model.allowed("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 				print "Allowance: "+allowance
 				if allowance == hash_session:
 					#Update stormpath user if password is affected
 					#Update local profile data and picture if other data are affected.
-					return fk.redirect('http://localhost:8080/ddsm-frontend/?action=update_success')
+					return fk.redirect('http://52.26.127.180:5000/?action=update_success')
 				else:
-					return fk.redirect('http://localhost:8080/ddsm-frontend/?action=update_failed')
+					return fk.redirect('http://52.26.127.180:5000/?action=update_failed')
 		else:
 			return fk.make_response("Missing mandatory fields.", status.HTTP_400_BAD_REQUEST)
 	else:
