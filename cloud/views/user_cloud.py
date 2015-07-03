@@ -48,7 +48,7 @@ def user_register():
 					return fk.Response(json.dumps({'session':user_model.session}), mimetype='application/json')
 					# return fk.redirect('http://52.26.127.180:5000/%s'%user_model.session)
 				except:
-					# print str(traceback.print_exc())
+					print str(traceback.print_exc())
 					return fk.make_response('This user already exists.', status.HTTP_401_UNAUTHORIZED)
 		else:
 			return fk.make_response("Missing mandatory fields.", status.HTTP_400_BAD_REQUEST)
@@ -82,7 +82,7 @@ def user_login():
 					return fk.Response(json.dumps({'session':account.session}), mimetype='application/json')
 					# return fk.redirect('http://52.26.127.180:5000/?session=%s'%account.session)
 				except:
-					# print str(traceback.print_exc())
+					print str(traceback.print_exc())
 					return fk.make_response('Login failed.', status.HTTP_401_UNAUTHORIZED)
 					
 		else:
