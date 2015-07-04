@@ -7,9 +7,12 @@ from io import BytesIO
 import zipfile
 import json
 import time
+import boto3
 import traceback
 
 app = setup_app(__name__)
+
+s3 =  boto3.resource('s3')
 
 # Templates
 loader = jinja2.PackageLoader('cloud', 'templates')
@@ -107,8 +110,10 @@ def load_image(record):
 
         try:
             image_buffer = StringIO()
-            with open(record.container.image['location'], 'rb') as fh:
-                image_buffer.write(fh.read())
+            # with open(record.container.image['location'], 'rb') as fh:
+            #     image_buffer.write(fh.read())
+            res = key.get_contents_to_filename(record.container.image['location'])
+            image_buffer.write(res)
             image_buffer.seek(0)
 
             data = zipfile.ZipInfo("record.tar")
