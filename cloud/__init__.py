@@ -113,9 +113,11 @@ def load_image(record):
             # with open(record.container.image['location'], 'rb') as fh:
             #     image_buffer.write(fh.read())
             # res = key.get_contents_to_filename(record.container.image['location'])   
-            s3_client = boto3.client('s3')
-            res = s3_client.get_object(Bucket='ddsm-bucket', Key=record.container.image['location'])         
-            image_buffer.write(res['Body'])
+            # s3_client = boto3.client('s3')
+            # res = s3_client.get_object(Bucket='ddsm-bucket', Key=record.container.image['location']) 
+            obj = s3.Object(bucket_name='ddsm-bucket', key=record.container.image['location'])  
+            res = obj.get()      
+            image_buffer.write(res['Body'].read())
             image_buffer.seek(0)
 
             data = zipfile.ZipInfo("record.tar")
