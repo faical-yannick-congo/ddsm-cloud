@@ -112,7 +112,7 @@ def load_image(record):
             image_buffer = StringIO()
             # with open(record.container.image['location'], 'rb') as fh:
             #     image_buffer.write(fh.read())
-            res = key.get_contents_to_filename(record.container.image['location'])
+            res = key.get_contents_to_filename(record.container.image['location'])            
             image_buffer.write(res)
             image_buffer.seek(0)
 
