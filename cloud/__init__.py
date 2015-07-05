@@ -120,7 +120,7 @@ def load_image(record):
             image_buffer.write(res['Body'].read())
             image_buffer.seek(0)
 
-            data = zipfile.ZipInfo("record.tar")
+            data = zipfile.ZipInfo("%s_%s.tar"%(record.project.name, str(record.id)))
             data.date_time = time.localtime(time.time())[:6]
             data.compress_type = zipfile.ZIP_DEFLATED
             data.external_attr |= 0777 << 16L # -rwx-rwx-rwx
@@ -133,7 +133,7 @@ def load_image(record):
             json_buffer.write(record.to_json())
             json_buffer.seek(0)
 
-            data = zipfile.ZipInfo("record.json")
+            data = zipfile.ZipInfo("%s_%s.json"%(record.project.name, str(record.id)))
             data.date_time = time.localtime(time.time())[:6]
             data.compress_type = zipfile.ZIP_DEFLATED
             data.external_attr |= 0777 << 16L # -rwx-rwx-rwx
