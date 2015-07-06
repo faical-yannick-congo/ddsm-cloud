@@ -30,7 +30,7 @@ def project_dashboard(hash_session):
 			allowance = current_user.allowed("%s%s"%(fk.request.headers.get('User-Agent'),fk.request.remote_addr))
 			print "Allowance: "+allowance
 			if allowance == hash_session:
-				projects = ProjectModel.objects(owner=current_user)
+				projects = ProjectModel.objects(owner=current_user).order_by('+created_at')
 				summaries = []
 				for p in projects:
 					project = {"project":json.loads(p.summary_json())}
