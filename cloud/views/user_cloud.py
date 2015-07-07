@@ -39,7 +39,14 @@ def user_register():
 						"middle_name" : "Empty",
 						"surname" : "Empty"
 					})
-					(user_model, created) = UserModel.objects.get_or_create(email=email)
+					while True:
+						try:
+							# Many trials because of API key generation failures some times.
+							(user_model, created) = UserModel.objects.get_or_create(email=email)
+							break
+						except:
+							print str(traceback.print_exc())
+
 					print "Token %s"%user_model.api_token
 					print fk.request.headers.get('User-Agent')
 					print fk.request.remote_addr
