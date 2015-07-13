@@ -13,6 +13,7 @@ import traceback
 import smtplib
 from email.mime.text import MIMEText
 from hurry.filesize import size
+import hashlib
 
 CLOUD_VERSION = 1
 CLOUD_URL = '/cloud/v{0}'.format(CLOUD_VERSION)
@@ -42,10 +43,11 @@ def user_register():
 					while True:
 						try:
 							# Many trials because of API key generation failures some times.
-							(user_model, created) = UserModel.objects.get_or_create(email=email)
+							(user_model, created) = UserModel.objects.get_or_create(email=email, api_token=hashlib.sha256(b'DDSM%s_%s'%(email, str(datetime.datetime.now()))).hexdigest())
 							break
 						except:
 							print str(traceback.print_exc())
+
 
 					print "Token %s"%user_model.api_token
 					print fk.request.headers.get('User-Agent')
